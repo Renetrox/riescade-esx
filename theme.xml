@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    ███████   ██ ████████  ████████   ██████      ██     ███████   ████████
+    ░██░░░░██ ░██░██░░░░░  ██░░░░░░   ██░░░░██    ████   ░██░░░░██ ░██░░░░░ 
+    ░██   ░██ ░██░██      ░██        ██    ░░    ██░░██  ░██    ░██░██      
+    ░███████  ░██░███████ ░█████████░██         ██  ░░██ ░██    ░██░███████ 
+    ░██░░░██  ░██░██░░░░  ░░░░░░░░██░██        ██████████░██    ░██░██░░░░  
+    ░██  ░░██ ░██░██             ░██░░██    ██░██░░░░░░██░██    ██ ░██      
+    ░██   ░░██░██░████████ ████████  ░░██████ ░██     ░██░███████  ░████████
+    ░░     ░░ ░░ ░░░░░░░░ ░░░░░░░░    ░░░░░░  ░░      ░░ ░░░░░░░   ░░░░░░░░  
+
+ RIESCADE Platform — ES-X native adaptation v3
+ Technical reference: Swatch PS5 / ES-X
+ Visual geometry: original RIESCADE Platform
+ Original RIESCADE assets by MarcoRiesco.
+-->
+<theme>
+  <formatVersion>6</formatVersion>
+
+  <!-- =========================================================
+       GLOBAL HEADER — original Riescade geometry
+       ========================================================= -->
+  <view name="system, basic, detailed, video">
+    <image name="header_filter" extra="true">
+      <origin>1 0</origin>
+      <pos>0.726 0.0432</pos>
+      <size>0.020 0.035</size>
+      <path>./resources/icons/Filter.png</path>
+      <zIndex>200</zIndex>
+    </image>
+
+    <image name="header_config" extra="true">
+      <origin>1 0</origin>
+      <pos>0.770 0.0434</pos>
+      <size>0.020 0.035</size>
+      <path>./resources/icons/Config.png</path>
+      <zIndex>200</zIndex>
+    </image>
+
+    <image name="header_avatar" extra="true">
+      <origin>1 0</origin>
+      <pos>0.827 0.037</pos>
+      <maxSize>0.050 0.050</maxSize>
+      <path>./resources/window_icon_256.png</path>
+      <zIndex>200</zIndex>
+    </image>
+  </view>
+
+  <view name="screen">
+    <text name="clock">
+      <origin>1 0.5</origin>
+      <pos>0.965 0.068</pos>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <fontSize>0.032</fontSize>
+      <color>FFFFFFFF</color>
+    </text>
+  </view>
+
+  <!-- =========================================================
+       SYSTEM VIEW
+       Swatch carousel mechanics + Riescade placement/resources.
+       ========================================================= -->
+  <view name="system">
+    <image name="system_fallback" extra="true">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./resources/_parts/default.jpg</path>
+      <zIndex>5</zIndex>
+    </image>
+    
+    <text name="systemInfo">
+    <visible>false</visible>
+</text>
+
+<helpsystem name="help">
+			<textColor>ffffff</textColor>
+			<iconColor>cccccc</iconColor>
+			<fontSize>0.0194</fontSize>
+			<fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+			<pos>0.520 0.9375</pos>
+		</helpsystem>
+	
+
+    <image name="system_fanart" extra="true">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./resources/arts/${system.theme}.jpg</path>
+      <default>./resources/_parts/default.jpg</default>
+      <zIndex>10</zIndex>
+    </image>
+
+    <image name="system_overlay" extra="true">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./resources/_parts/overlay.png</path>
+      <zIndex>15</zIndex>
+    </image>
+
+    <!-- Riescade's platform categories. ES-X has no Batocera hardwareType
+         condition language, so they remain a neutral visual header. -->
+    <text name="platform_categories" extra="true">
+      <origin>0 0</origin>
+      <pos>0.045 0.041</pos>
+      <size>0.600 0.050</size>
+      <text>Arcades   Computers   Consoles   Pinball   Ports   Portables</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <fontSize>0.022</fontSize>
+      <color>FFFFFFFF</color>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <image name="logo">
+      <path>./resources/logos/platform/${system.theme}.png</path>
+      <default>./resources/_parts/logo_default.png</default>
+    </image>
+
+    <!-- PR #48: estilo del nombre, visible únicamente cuando el logo
+         propio no existe y se utiliza logo_default.png. -->
+    <text name="logoText">
+      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
+      <fontSize>0.019</fontSize>
+      <color>FFFFFFFF</color>
+      <alignment>center</alignment>
+      <forceUppercase>true</forceUppercase>
+      <textStrokeColor>000000DD</textStrokeColor>
+      <textStrokeSize>1</textStrokeSize>
+      <pos>0.5 0.50</pos>
+      <size>0.94 0.28</size>
+    </text>
+
+    <carousel name="systemcarousel">
+      <!-- Activar únicamente para el fallback, sin alterar los logos. -->
+      <showFallbackName>true</showFallbackName>
+			<zIndex>70</zIndex>  
+			<type>horizontal</type>
+			<origin>0.592 0.00999</origin>
+			<pos>0.305 0.095</pos>
+			<size>1.7 0.990</size>
+			<logoAlignment>top</logoAlignment>
+			<logoScale>1.5</logoScale>
+			<logoSize>0.21 0.13</logoSize>
+			<logoSpacingX>0.081</logoSpacingX>
+			<color>00000000</color>
+			<maxLogoCount>8</maxLogoCount>
+			<minLogoOpacity>0.94</minLogoOpacity>
+			<scaledLogoSpacing>1.1</scaledLogoSpacing>
+			<zIndex>85</zIndex>
+		</carousel>
+
+    <!-- Static selection frame: same role as Riescade's logo_active,
+         but using only ES-X-supported properties. -->
+    <image name="system_selected_frame" extra="true">
+      <origin>0 0</origin>
+			<pos>0 0</pos>
+			<size>1 1</size>
+      <path>./resources/_parts/marco-activo-iso.png</path>
+      <pulse>true</pulse>
+    <pulseOpacityMin>0.35</pulseOpacityMin>
+    <pulseOpacityMax>0.95</pulseOpacityMax>
+    <pulseDuration>1600</pulseDuration>
+      <zIndex>700</zIndex>
+    </image>
+
+    <text name="system_title" extra="true">
+      <origin>0 0</origin>
+      <pos>0.210 0.235</pos>
+      <size>0.700 0.050</size>
+      <text>${system.fullName} (${system.gameCount} games)</text>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.026</fontSize>
+      <color>FFFFFFFF</color>
+      <textStrokeColor>000000CC</textStrokeColor>
+      <textStrokeSize>1</textStrokeSize>
+      <alignment>left</alignment>
+      <zIndex>115</zIndex>
+    </text>
+
+    <!-- Small controller mark, like the lower-left Riescade footer. -->
+    <image name="footer_controller" extra="true">
+      <origin>0 1</origin>
+      <pos>0.016 0.970</pos>
+      <maxSize>0.025 0.025</maxSize>
+      <path>./resources/icons/Controllers.png</path>
+      <zIndex>120</zIndex>
+    </image>
+  </view>
+
+  <!-- =========================================================
+       GAMELIST — common background/header
+       ========================================================= -->
+  <view name="basic, detailed, video">
+    <image name="gamelist_fallback" extra="true">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./resources/_parts/default.jpg</path>
+      <zIndex>5</zIndex>
+    </image>
+    
+    <helpsystem name="help">
+			<textColor>ffffff</textColor>
+			<iconColor>cccccc</iconColor>
+			<fontSize>0.0194</fontSize>
+			<fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+			<pos>0.410 0.9375</pos>
+		</helpsystem>
+
+    <!-- ES-X resolves md_background as fanart, then screenshot fallback. -->
+    <image name="md_background">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <scrollFadeIn>true</scrollFadeIn>
+      <zIndex>10</zIndex>
+    </image>
+    
+    <image name="system_selected_frame" extra="true">
+      <origin>0 0</origin>
+			<pos>0 0</pos>
+			<size>1 1</size>
+      <path>./resources/_parts/marco-activo-iso.png</path>
+      <pulse>true</pulse>
+    <pulseOpacityMin>0.35</pulseOpacityMin>
+    <pulseOpacityMax>0.95</pulseOpacityMax>
+    <pulseDuration>1600</pulseDuration>
+      <zIndex>700</zIndex>
+    </image>
+
+
+    <image name="gamelist_overlay" extra="true">
+      <origin>0 0</origin>
+      <pos>0 0</pos>
+      <size>1 1</size>
+      <path>./resources/_parts/overlay.png</path>
+      <zIndex>15</zIndex>
+    </image>
+
+    <!-- Game view header: original Riescade displays current system name. -->
+    <text name="gamelist_system_name" extra="true">
+      <origin>0 0</origin>
+      <pos>0.045 0.041</pos>
+      <size>0.500 0.050</size>
+      <text>${system.fullName}</text>
+      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
+      <fontSize>0.032</fontSize>
+      <color>FFFFFFFF</color>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <!-- Swatch's proven ES-X carousel, moved to Riescade coordinates. -->
+  <textlist name="gamelist">
+    <!-- Texto oculto: el carrusel trabaja visualmente con artwork -->
+    <selectorColor>FFFFFF00</selectorColor>
+    <selectedColor>FFFFFF00</selectedColor>
+    <primaryColor>FFFFFF00</primaryColor>
+    <secondaryColor>FFFFFF00</secondaryColor>
+
+    <!-- Fuente nativa de Riescade -->
+    <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+    <lineSpacing>1.00</lineSpacing>
+
+    <!-- Geometría probada del Swatch PS5 -->
+    <alignment>left</alignment>
+    <size>1.00 0.35</size>
+    <pos>-0.021 0.069</pos>
+    <zIndex>100</zIndex>
+
+    <!-- Carrusel horizontal ES-X -->
+    <orientation>horizontal</orientation>
+    <carouselMode>true</carouselMode>
+    <carouselLoop>true</carouselLoop>
+
+    <!-- Sin fondos artificiales: el aspecto de card lo dan
+         el artwork y los frames de Riescade -->
+    <carouselItemColor>00000000</carouselItemColor>
+    <carouselSelectedItemColor>00000000</carouselSelectedItemColor>
+
+    <!-- Artwork -->
+    <carouselImage>true</carouselImage>
+    <carouselImageType>wheel</carouselImageType>
+    <carouselFallbackImage>./resources/systemicons/p.png</carouselFallbackImage>
+
+    <carouselImageFit>contain</carouselImageFit>
+    <carouselImagePadding>0.004 0.006</carouselImagePadding>
+
+    <!-- Mantener todas las tarjetas con una caja estable.
+         LockSize sin BoxSize no hacía realmente nada. -->
+    <carouselImageLockSize>true</carouselImageLockSize>
+    <carouselImageBoxSize>0.067 0.521</carouselImageBoxSize>
+    <carouselImageZIndex>20</carouselImageZIndex>
+
+    <carouselShowText>false</carouselShowText>
+
+    <!-- Marcos reales de Riescade.
+         logo_default.png NO conviene aquí porque ES-X dibuja
+         carouselImageBorder como overlay encima del artwork. -->
+    <carouselImageBorder>./resources/_parts/logo_default.png</carouselImageBorder>
+    <carouselImageBorderSelected>./resources/_parts/logo_default.png</carouselImageBorderSelected>
+    <carouselImageBorderFit>contain</carouselImageBorderFit>
+    <carouselImageBorderScale>1.11</carouselImageBorderScale>
+    <carouselImageBorderColor>FFFFFFFF</carouselImageBorderColor>
+    <carouselImageBorderZIndex>10</carouselImageBorderZIndex>
+
+    <!-- Tamaño y escala del Swatch que ya sabemos que funcionan -->
+    <logoScale>1.40</logoScale>
+    <logoSize>0.067 0.521</logoSize>
+    
+
+    <!-- Posición fina dentro del área del carrusel -->
+    <logoOffsetX>-0.330</logoOffsetX>
+    <logoOffsetY>-0.004</logoOffsetY>
+    <logoAlignment>top</logoAlignment>
+
+    <!-- Distribución -->
+    <logoSpacingX>0.083</logoSpacingX>
+    <scaledLogoSpacing>0.90</scaledLogoSpacing>
+    <maxLogoCount>6</maxLogoCount>
+    <minLogoOpacity>0.90</minLogoOpacity>
+
+    <!-- Sonido original de Riescade -->
+    <scrollSound>./resources/sounds/click.ogg</scrollSound>
+</textlist>
+
+
+    <image name="footer_controller" extra="true">
+      <origin>0 1</origin>
+      <pos>0.016 0.970</pos>
+      <maxSize>0.025 0.025</maxSize>
+      <path>./resources/icons/Controllers.png</path>
+      <zIndex>120</zIndex>
+    </image>
+  </view>
+
+  <!-- =========================================================
+       SELECTED GAME DETAILS
+       Original Riescade coordinates, ES-X native metadata.
+       ========================================================= -->
+  <view name="detailed, video">
+    <text name="md_name">
+      <origin>0 0</origin>
+      <pos>0.210 0.235</pos>
+      <size>0.760 0.050</size>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.026</fontSize>
+      <color>FFFFFFFF</color>
+      <textStrokeColor>000000CC</textStrokeColor>
+      <textStrokeSize>1</textStrokeSize>
+      <alignment>left</alignment>
+      <zIndex>115</zIndex>
+    </text>
+
+    <image name="md_marquee">
+      <origin>0 0</origin>
+      <pos>0.090 0.490</pos>
+      <maxSize>0.208 0.140</maxSize>
+      <zIndex>100</zIndex>
+    </image>
+    
+<video name="md_video">
+    <origin>0 0</origin>
+    <pos>0 0</pos>
+    <size>1 1</size>
+    <delay>2.0</delay>
+    <zIndex>15</zIndex>
+    <visible>true</visible>
+</video>
+
+    <text name="md_description">
+      <origin>0 0</origin>
+      <pos>0.090 0.650</pos>
+      <size>0.350 0.085</size>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.018</fontSize>
+      <color>FFFFFFFF</color>
+      <textStrokeColor>00000088</textStrokeColor>
+      <textStrokeSize>1</textStrokeSize>
+      <alignment>left</alignment>
+      <lineSpacing>1.45</lineSpacing>
+      <zIndex>100</zIndex>
+    </text>
+
+    <!-- Visual Play button. Launch remains the normal ES-X A/Enter action. -->
+    <image name="play_button_bg" extra="true">
+      <origin>0 0</origin>
+      <pos>0.090 0.772</pos>
+      <size>0.174 0.075</size>
+      <path>./resources/_parts/white.png</path>
+      <color>FFFFFF16</color>
+      <zIndex>100</zIndex>
+    </image>
+
+    <text name="play_button_label" extra="true">
+      <origin>0.5 0.5</origin>
+      <pos>0.177 0.8095</pos>
+      <size>0.150 0.045</size>
+      <text>Play</text>
+      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
+      <fontSize>0.028</fontSize>
+      <color>FFFFFFFF</color>
+      <alignment>center</alignment>
+      <zIndex>105</zIndex>
+    </text>
+
+    <!-- Riescade-style information card. ES-X exposes players/playcount/
+         release/last-played, not Batocera's game-time binding. -->
+    <image name="game_info_bg" extra="true">
+      <origin>0 0</origin>
+      <pos>0.718 0.772</pos>
+      <size>0.1927 0.075</size>
+      <path>./resources/_parts/white.png</path>
+      <color>11151BDD</color>
+      <zIndex>100</zIndex>
+    </image>
+
+    <image name="players_icon" extra="true">
+      <origin>0 0.5</origin>
+      <pos>0.733 0.8095</pos>
+      <maxSize>0.032 0.032</maxSize>
+      <path>./resources/icons/Controllers.png</path>
+      <zIndex>105</zIndex>
+    </image>
+
+    <text name="md_players">
+      <origin>0 0.5</origin>
+      <pos>0.765 0.8095</pos>
+      <size>0.035 0.030</size>
+      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
+      <fontSize>0.018</fontSize>
+      <color>FFFFFFFF</color>
+      <zIndex>105</zIndex>
+    </text>
+
+    <text name="label_playcount" extra="true">
+      <origin>0 0</origin>
+      <pos>0.798 0.790</pos>
+      <size>0.060 0.022</size>
+      <text> 🎮</text>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.025</fontSize>
+      <color>FFFFFFFF</color>
+      <zIndex>105</zIndex>
+    </text>
+
+    <text name="md_playcount">
+      <origin>0 0</origin>
+      <pos>0.805 0.814</pos>
+      <size>0.060 0.024</size>
+      <fontPath>./resources/fonts/OpenSans-Condensed-Bold.ttf</fontPath>
+      <fontSize>0.018</fontSize>
+      <color>FFFFFFFF</color>
+      <zIndex>105</zIndex>
+    </text>
+
+    <text name="label_release" extra="true">
+      <origin>0 0</origin>
+      <pos>0.855 0.790</pos>
+      <size>0.055 0.022</size>
+      <text>📅</text>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.025</fontSize>
+      <color>FFFFFFFF</color>
+      <zIndex>105</zIndex>
+    </text>
+
+    <datetime name="md_releasedate">
+      <origin>0 0</origin>
+      <pos>0.855 0.814</pos>
+      <size>0.055 0.024</size>
+      <format>%Y</format>
+      <fontPath>./resources/fonts/OpenSans-Condensed-Bold.ttf</fontPath>
+      <fontSize>0.018</fontSize>
+      <color>FFFFFFFF</color>
+      <zIndex>105</zIndex>
+    </datetime>
+
+    <!-- Hide unused metadata explicitly, keeping this composition clean. -->
+    <text name="md_developer"><visible>false</visible></text>
+    <text name="md_publisher"><visible>false</visible></text>
+    <text name="md_genre"><visible>false</visible></text>
+    <datetime name="md_lastplayed"><visible>false</visible></datetime>
+    <rating name="md_rating"><visible>false</visible></rating>
+    <image name="md_thumbnail"><visible>false</visible></image>
+    <image name="md_image"><visible>false</visible></image>
+
+  </view>
+
+  <!-- Basic view still receives the same horizontal carousel. -->
+  <view name="basic">
+    <text name="basic_hint" extra="true">
+      <pos>0.090 0.650</pos>
+      <size>0.350 0.050</size>
+      <text>Selecciona un juego</text>
+      <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
+      <fontSize>0.018</fontSize>
+      <color>FFFFFFCC</color>
+      <zIndex>100</zIndex>
+    </text>
+  </view>
+
+  <feature supported="navigationsounds">
+    <view name="all">
+      <sound name="systembrowse"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="quicksysselect"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="select"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="back"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="scroll"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="favorite"><path>./resources/sounds/click.ogg</path></sound>
+      <sound name="launch"><path>./resources/sounds/click.ogg</path></sound>
+    </view>
+  </feature>
+</theme>
