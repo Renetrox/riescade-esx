@@ -1,6 +1,6 @@
 ![Logo](./resources/_screenshots/riescade.png)
 
-# RIESCADE Platforms (PS5 style)
+# RIESCADE Platforms (PS5 style) — ES-X TEST
 
 ![GitHub Latest Release](https://img.shields.io/github/v/release/marcoriesco/riescade_platform?logo=github)
 
@@ -9,6 +9,16 @@ Theme 'RIESCADE' Platforms v1.2 - 05-02-2024 by MarcoRiesco
 based on interface Playstation 5 http://playstation.com/
 
 for use with EmulationStation (http://www.emulationstation.org/) and Batocera V36+ (https://batocera.linux)
+
+## ES-X TEST build (evaluation)
+
+This ES-X adaptation currently includes **experimental dynamic system category
+tabs** (Arcades, Computers, Consoles, Extensions, Pinball, Ports, Portables).
+Only the category corresponding to the selected system is highlighted.
+Requires an ES-X build with native `activeFor`, `activeColor` and
+`activeFontPath` text support. Classification and spacing still need testing
+on PC and Orange Pi 4A. This does **not** import Batocera's `if` expression
+engine; classic themes remain unaffected.
 
 ## License
 
