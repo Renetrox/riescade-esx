@@ -9,7 +9,7 @@
     ░██   ░░██░██░████████ ████████  ░░██████ ░██     ░██░███████  ░████████
     ░░     ░░ ░░ ░░░░░░░░ ░░░░░░░░    ░░░░░░  ░░      ░░ ░░░░░░░   ░░░░░░░░  
 
-RIESCADE-ESX v3 — Swatch mechanics / Riescade geometry
+RIESCADE-ESX v3 — TEST: dynamic category tabs / Riescade geometry
 
 This version was rebuilt after comparing:
 1. the working Swatch PS5 ES-X theme structure,
@@ -25,9 +25,10 @@ Key decisions:
 - No Batocera subset, storyboard, stackpanel, rectangle, onclick or expression syntax.
 - No unsupported image opacity property.
 - No theme.ini dependency in this stability-first version.
+- TEST: Original 7 category labels are separate, opt-in styled text extras.
 
 Limitations:
-- ES-X does not currently reproduce Batocera's dynamic hardware-category bolding.
+- TEST: Hardware-category tabs now highlight from native ES-X activeFor metadata; on-device evaluation pending.
 - The Play button is visual; normal A/Enter launches the selected game.
 - Batocera's game-time binding is not exposed as a native themed metadata field,
   so the right card uses Players + Play Count + Release Year instead.

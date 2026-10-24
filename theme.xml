@@ -100,16 +100,109 @@
       <zIndex>15</zIndex>
     </image>
 
-    <!-- Riescade's platform categories. ES-X has no Batocera hardwareType
-         condition language, so they remain a neutral visual header. -->
-    <text name="platform_categories" extra="true">
+    <!-- TEST: category tabs styled per selected system by ES-X native activeFor.
+         Original Riescade geometry retained, no Batocera conditional parser. -->
+    <text name="category_arcade" extra="true">
       <origin>0 0</origin>
       <pos>0.045 0.041</pos>
-      <size>0.600 0.050</size>
-      <text>Arcades   Computers   Consoles   Pinball   Ports   Portables</text>
+      <size>0.078 0.050</size>
+      <text>Arcades</text>
       <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
       <fontSize>0.022</fontSize>
-      <color>FFFFFFFF</color>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>arcade</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_computer" extra="true">
+      <origin>0 0</origin>
+      <pos>0.126 0.041</pos>
+      <size>0.110 0.050</size>
+      <text>Computers</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>computer</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_console" extra="true">
+      <origin>0 0</origin>
+      <pos>0.240 0.041</pos>
+      <size>0.096 0.050</size>
+      <text>Consoles</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>console</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_extension" extra="true">
+      <origin>0 0</origin>
+      <pos>0.339 0.041</pos>
+      <size>0.110 0.050</size>
+      <text>Extensions</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>extension</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_pinball" extra="true">
+      <origin>0 0</origin>
+      <pos>0.453 0.041</pos>
+      <size>0.075 0.050</size>
+      <text>Pinball</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>pinball</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_port" extra="true">
+      <origin>0 0</origin>
+      <pos>0.532 0.041</pos>
+      <size>0.060 0.050</size>
+      <text>Ports</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>port</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_portable" extra="true">
+      <origin>0 0</origin>
+      <pos>0.595 0.041</pos>
+      <size>0.100 0.050</size>
+      <text>Portables</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>portable</activeFor>
       <alignment>left</alignment>
       <zIndex>205</zIndex>
     </text>
