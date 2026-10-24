@@ -418,23 +418,18 @@
       <zIndex>100</zIndex>
     </image>
 
-    <image name="players_icon" extra="true">
+    <!-- ES-X native per-game badge: 1p/2p/3p/4p/8p, with generic fallback. -->
+    <image name="md_players_icon">
       <origin>0 0.5</origin>
       <pos>0.733 0.8095</pos>
       <maxSize>0.032 0.032</maxSize>
-      <path>./resources/icons/Controllers.png</path>
+      <path>./resources/systemicons/{game:players}p.png</path>
+      <default>./resources/icons/Controllers.png</default>
       <zIndex>105</zIndex>
     </image>
 
-    <text name="md_players">
-      <origin>0 0.5</origin>
-      <pos>0.765 0.8095</pos>
-      <size>0.035 0.030</size>
-      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
-      <fontSize>0.018</fontSize>
-      <color>FFFFFFFF</color>
-      <zIndex>105</zIndex>
-    </text>
+    <!-- The badge already includes the player count; avoid displaying it twice. -->
+    <text name="md_players"><visible>false</visible></text>
 
     <text name="label_playcount" extra="true">
       <origin>0 0</origin>
