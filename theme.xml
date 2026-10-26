@@ -100,16 +100,109 @@
       <zIndex>15</zIndex>
     </image>
 
-    <!-- Riescade's platform categories. ES-X has no Batocera hardwareType
-         condition language, so they remain a neutral visual header. -->
-    <text name="platform_categories" extra="true">
+    <!-- TEST: category tabs styled per selected system by ES-X native activeFor.
+         Original Riescade geometry retained, no Batocera conditional parser. -->
+    <text name="category_arcade" extra="true">
       <origin>0 0</origin>
       <pos>0.045 0.041</pos>
-      <size>0.600 0.050</size>
-      <text>Arcades   Computers   Consoles   Pinball   Ports   Portables</text>
+      <size>0.078 0.050</size>
+      <text>Arcades</text>
       <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
       <fontSize>0.022</fontSize>
-      <color>FFFFFFFF</color>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>arcade</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_computer" extra="true">
+      <origin>0 0</origin>
+      <pos>0.126 0.041</pos>
+      <size>0.110 0.050</size>
+      <text>Computers</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>computer</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_console" extra="true">
+      <origin>0 0</origin>
+      <pos>0.240 0.041</pos>
+      <size>0.096 0.050</size>
+      <text>Consoles</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>console</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_extension" extra="true">
+      <origin>0 0</origin>
+      <pos>0.339 0.041</pos>
+      <size>0.110 0.050</size>
+      <text>Extensions</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>extension</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_pinball" extra="true">
+      <origin>0 0</origin>
+      <pos>0.453 0.041</pos>
+      <size>0.075 0.050</size>
+      <text>Pinball</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>pinball</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_port" extra="true">
+      <origin>0 0</origin>
+      <pos>0.532 0.041</pos>
+      <size>0.060 0.050</size>
+      <text>Ports</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>port</activeFor>
+      <alignment>left</alignment>
+      <zIndex>205</zIndex>
+    </text>
+
+    <text name="category_portable" extra="true">
+      <origin>0 0</origin>
+      <pos>0.595 0.041</pos>
+      <size>0.100 0.050</size>
+      <text>Portables</text>
+      <fontPath>./resources/fonts/OpenSans-Light.ttf</fontPath>
+      <activeFontPath>./resources/fonts/OpenSans-SemiBold.ttf</activeFontPath>
+      <fontSize>0.022</fontSize>
+      <color>BEBEBEFF</color>
+      <activeColor>FFFFFFFF</activeColor>
+      <activeFor>portable</activeFor>
       <alignment>left</alignment>
       <zIndex>205</zIndex>
     </text>
@@ -362,6 +455,13 @@
       <zIndex>100</zIndex>
     </image>
     
+    <image name="md_thumbnail">
+      <origin>0 0</origin>
+      <pos>0.713 0.490</pos>
+      <size>0.20 0.20</size>
+      <zIndex>100</zIndex>
+    </image>
+    
 <video name="md_video">
     <origin>0 0</origin>
     <pos>0 0</pos>
@@ -370,6 +470,8 @@
     <zIndex>15</zIndex>
     <visible>true</visible>
 </video>
+
+
 
     <text name="md_description">
       <origin>0 0</origin>
@@ -418,29 +520,24 @@
       <zIndex>100</zIndex>
     </image>
 
-    <image name="players_icon" extra="true">
+    <!-- ES-X native per-game badge: 1p/2p/3p/4p/8p, with generic fallback. -->
+    <image name="md_players_icon">
       <origin>0 0.5</origin>
       <pos>0.733 0.8095</pos>
-      <maxSize>0.032 0.032</maxSize>
-      <path>./resources/icons/Controllers.png</path>
+      <maxSize>0.042 0.042</maxSize>
+      <path>./resources/systemicons/{game:players}p.png</path>
+      <default>./resources/icons/Controllers.png</default>
       <zIndex>105</zIndex>
     </image>
 
-    <text name="md_players">
-      <origin>0 0.5</origin>
-      <pos>0.765 0.8095</pos>
-      <size>0.035 0.030</size>
-      <fontPath>./resources/fonts/OpenSans-SemiBold.ttf</fontPath>
-      <fontSize>0.018</fontSize>
-      <color>FFFFFFFF</color>
-      <zIndex>105</zIndex>
-    </text>
+    <!-- The badge already includes the player count; avoid displaying it twice. -->
+    <text name="md_players"><visible>false</visible></text>
 
     <text name="label_playcount" extra="true">
       <origin>0 0</origin>
       <pos>0.798 0.790</pos>
       <size>0.060 0.022</size>
-      <text> 🎮</text>
+      <text> 🎲</text>
       <fontPath>./resources/fonts/OpenSans-Regular.ttf</fontPath>
       <fontSize>0.025</fontSize>
       <color>FFFFFFFF</color>
